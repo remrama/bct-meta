@@ -1,0 +1,12 @@
+first_author,year,doi,sheet_status,found,found_by_string,record_id,sources
+Levinson,2014,10.3389/fpsyg.2014.01202,extracted,True,True,25,europepmc:S1;europepmc:S2;europepmc:S3;europepmc:S4;openalex:S1;openalex:S2;openalex:S3;openalex:S4;pubmed:S2;refs:megaanalysis2023
+Herrero,2018,10.1152/jn.00551.2017,placeholder,True,True,208,cites:levinson2014;europepmc:S2;europepmc:S3;openalex:S2;openalex:S3
+Lim,2018,10.1016/j.neuroimage.2018.04.056,extracted,True,True,220,cites:levinson2014;europepmc:S1;europepmc:S2;openalex:S1;openalex:S2;openalex:S3;pubmed:S1;pubmed:S2
+Wong,2018,10.1007/s12671-017-0880-1,extracted,True,True,265,cites:levinson2014;europepmc:S1;europepmc:S2;europepmc:S3;openalex:S1;openalex:S2;openalex:S3;openalex:S4;pubmed:S1;pubmed:S2;refs:megaanalysis2023
+Rowland,2019,10.1007/s12671-019-01204-9,extracted,True,True,307,cites:levinson2014;openalex:S1;openalex:S2;openalex:S3
+Gorman,2016,10.1038/srep24542,placeholder,True,True,121,cites:levinson2014;europepmc:S1;europepmc:S2;openalex:S1;openalex:S2;openalex:S3
+Isbel,2020,10.1037/pas0000957,extracted,True,True,387,europepmc:S1;europepmc:S2;openalex:S1;openalex:S2;openalex:S3;pubmed:S1;pubmed:S2;refs:megaanalysis2023
+Polsinelli,2020,10.1007/s12671-020-01329-2,extracted,True,False,404,cites:levinson2014
+Tortella-Feliu,2020,10.1007/s12671-020-01471-x,extracted,True,True,382,cites:levinson2014;openalex:S2;openalex:S3
+Stieger,2021,10.1093/cercor/bhaa234,extracted,True,True,555,cites:levinson2014;europepmc:S1;europepmc:S2;openalex:S1;openalex:S2;openalex:S3;pubmed:S1;pubmed:S2;refs:megaanalysis2023
+Thompson,2021,10.1007/s41465-020-00174-4,placeholder,True,True,471,cites:levinson2014;openalex:S1;openalex:S2;openalex:S3

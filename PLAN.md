@@ -12,11 +12,11 @@ with data and code in this repository. Status as of 2026-10-15.
 - Data hygiene: codebook matches the sheets, Levinson 2014 study 1 split into independent blocks
   (1a/1b), SART outcomes both in EF, DOIs for all listed publications (`sourcedata/publications.csv`).
 
-## 1. Systematic search  ← current step; see SEARCH_PLAN.md
-- Claude writes `code/search/fetch_records.py`; Remy runs it; Claude deduplicates and builds the
-  ASReview screening set. Hard gate: recall check against `sourcedata/publications.csv`.
-- Remy screens in ASReview (title/abstract, then full text). Decisions exported to
-  `sourcedata/screening_decisions.csv` for the PRISMA flow.
+## 1. Systematic search  ← current step; see SEARCH_PROTOCOL.md
+- Done 2026-10-15: search run, 1,270 unique records in `derivatives/search/candidates_asreview.csv`,
+  recall check passed (11/11).
+- Next: dual independent screening in ASReview per `SCREENING_GUIDE.md` (calibration round, then
+  title/abstract, then full text). Exports go to `sourcedata/screening/` for κ and the PRISMA flow.
 - Optional: Google Scholar forward citations via Publish or Perish, merged into the candidate set.
 
 ## 2. Extraction
@@ -41,8 +41,8 @@ with data and code in this repository. Status as of 2026-10-15.
    what the 2023 FFMQ mega-analysis already showed, what this adds (controlled pre/post synthesis;
    wellbeing and EF constructs).
 4. Discussion — sensitivity to training vs weak convergence with self-report; limitations
-   (small k, digitized values, assumed r, no Scopus/WoS/PsycInfo, single screener with AI
-   assistance).
+   (small k, digitized values, assumed r, no Scopus/WoS/PsycInfo, AI-assisted
+   prioritisation in ASReview).
 5. Structured abstract (Objectives / Methods / Results / Conclusions, ≤ 250 words), title,
    4–6 keywords.
 - Format: Markdown + `.bib` → pandoc → `.docx` (Springer) and PDF (preprint). Keep it short;

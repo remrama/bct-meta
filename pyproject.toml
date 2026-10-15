@@ -4,8 +4,10 @@ version = "0.1.0"
 description = "Python helpers (plot digitizing, literature search) for the BCT meta-analysis; the analysis itself is in R"
 requires-python = ">=3.12"
 dependencies = [
+    "asreview>=3.0.8",
     "numpy>=2.5.4",
-    "pandas>=3.0.6",
+    "pandas>=2.2,<3",
+    "python-dotenv>=1.2.4",
     "requests>=2.34.2",
 ]
 
