@@ -1,7 +1,14 @@
+"""Convert plot-digitizer output for Levinson et al. (2014) Study 4 (Fig. 6)
+into pre/post means and SDs for the BCT, n-back and no-training groups.
+Points were digitized from data/levinson2014_plot.jpg; values were then
+entered by hand into data/breathpubs_prepost.xlsx (rows flagged "values from digitization!").
+"""
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
-fname = "/Users/remy/Google Drive/projects/breathtmr/levinson_data.csv"
+fname = Path(__file__).resolve().parent.parent / "data" / "levinson2014_digitized.csv"
 
 df = pd.read_csv(fname, header=None, names=["bar","y"])
 

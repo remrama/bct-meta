@@ -1,1 +1,9 @@
+# OS / editor
 .DS_Store
+Thumbs.db
+~$*
+.Rhistory
+.RData
+.Rproj.user/
+__pycache__/
+*.pyc

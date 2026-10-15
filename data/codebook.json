@@ -1,0 +1,75 @@
+{
+  "_about": "Column definitions for the two raw extraction sheets. The sheets are the source of truth and are never modified by code; code/load_data.R reads them and applies the inclusion rules documented there. Placeholder rows (a publication listed but no numbers extracted) are allowed and are excluded by code.",
+
+  "breathpubs_corr.xlsx (sheet 'experiments'): one row per reported correlation": {
+    "journal":           "Abbreviated journal name",
+    "year":              "Publication year",
+    "author":            "First author surname",
+    "senior":            "Last author surname",
+    "study":             "Study identifier within the publication, as text (blank = single study; treated as '1'). A letter suffix marks independent participant blocks within one study, e.g. Levinson 2014 1a (original probe order, n = 120) vs 1b (reversed order; the n = 44 replication block plus the n = 93 questionnaire sample, which overlap). Rows sharing a study code are modelled as one sample.",
+    "breathtask":        "Breath-tracking task variant. BCT = breath counting task (Levinson et al., 2014); MBAS = mindful breathing awareness scale (Frewen); MBE = mindful breathing exercise (Burg); BAT, RTT, MCT = other variants. MVP analyses use BCT only.",
+    "breathtask_length": "Task duration in minutes",
+    "breathtask_count":  "Breaths per counting cycle (9 in the standard BCT)",
+    "bell_interval":     "MBAS only: interval between probe bells",
+    "sample":            "Free-text description of the sample",
+    "n":                 "Sample size for this correlation",
+    "category":          "Construct family of the correlate: mindfulness | wellbeing | EF (executive function)",
+    "correlate":         "Questionnaire or task (subscale after a hyphen). See scales_corr.xlsx for full names.",
+    "r":                 "Pearson correlation between BCT accuracy and the correlate, as reported",
+    "reverse":           "1 if a higher score on the correlate means LESS mindful / WORSE wellbeing / WORSE executive function. Code multiplies r by -1 for these rows so that positive = good.",
+    "warnings":          "Extraction concerns (lines starting with *)",
+    "notes":             "Other remarks"
+  },
+
+  "breathpubs_prepost.xlsx (sheet 'experiments'): one row per arm per publication": {
+    "study_type":           "prepost = BCT measured before and after a period; intervention = BCT used as the intervention itself (no BCT outcome; excluded)",
+    "journal":              "Abbreviated journal name",
+    "year":                 "Publication year",
+    "author":               "First author surname",
+    "senior":               "Last author surname",
+    "study":                "Study number within the publication",
+    "control":              "1 = control arm, 0 = intervention arm",
+    "intervention":         "Arm label: intervention name, or for controls the control type (waitlist, n-back, attention, imagery, '-' = no training, followup = later re-test of the intervention arm; excluded)",
+    "intervention_length":  "Duration in weeks unless stated otherwise",
+    "intervention_details": "Free-text description",
+    "breathtask":           "As in the correlations sheet",
+    "breathtask_length":    "Task duration in minutes",
+    "breathtask_count":     "Breaths per counting cycle",
+    "bell_interval":        "MBAS only",
+    "breathtask_feedback":  "Whether accuracy feedback was given during the task (UNSPEC = not reported)",
+    "sample":               "Free-text description of the sample",
+    "n":                    "Participants in this arm",
+    "mean1":                "Mean BCT accuracy (% correct cycles) at pre-test",
+    "sd1":                  "SD at pre-test (blank if only SEM reported)",
+    "sem1":                 "SEM at pre-test (converted to SD in code as sem * sqrt(n))",
+    "mean2":                "Mean BCT accuracy at post-test",
+    "sd2":                  "SD at post-test",
+    "sem2":                 "SEM at post-test",
+    "correlate":            "Unused in this sheet",
+    "r":                    "Unused in this sheet",
+    "warnings":             "Extraction concerns. 'values from digitization!' = means/SDs read off a figure with a plot digitizer (see code/digitize_*.py)",
+    "notes":                "Other remarks"
+  },
+
+  "publications.csv: one row per publication listed in either sheet": {
+    "first_author": "Matches the 'author' column of the sheets",
+    "year":         "Year as published (may differ from the sheets where a paper was online-first)",
+    "title":        "Full title",
+    "journal":      "Full journal name",
+    "doi":          "DOI (bare). Blank if not located.",
+    "task":         "Breath-task variant used",
+    "sheet_status": "extracted = numbers taken into a sheet; placeholder = listed but no data extracted",
+    "notes":        "Discrepancies with the sheets, exclusion reasons, etc."
+  },
+
+  "zotero_import_dois.txt": "The DOIs above, one per line, for pasting into Zotero's 'Add Item by Identifier' box",
+
+  "scales_corr.xlsx: lookup table for correlate acronyms": {
+    "category":  "mindfulness | wellbeing | EF",
+    "acronym":   "Acronym used in the 'correlate' column",
+    "measure":   "Full instrument name",
+    "description": "Short description",
+    "reference": "Citation",
+    "link":      "DOI link"
+  }
+}

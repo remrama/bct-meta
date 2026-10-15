@@ -1,0 +1,7 @@
+"pub_id","label","n_intervention","n_control","arm_label_intervention","arm_label_control","ri","yi","vi"
+"levinson2014","Levinson et al., 2014",22,49,"BCT","n-back + none",0.5,1.1328911255421,0.0773326862353175
+"rowland2019","Rowland et al., 2019",60,60,"UBM","waitlist",0.5,0.403868145950121,0.0348328505163949
+"isbel2020","Isbel et al., 2020",53,33,"MBI-","attention",0.5,0.63435354788293,0.0517239070004938
+"polsinelli2020","Polsinelli et al., 2020",27,23,"FAM","imagery",0.5,0.097082631886548,0.0806898356364915
+"tortellafeliu2020","Tortella-Feliu et al., 2020",44,24,"MBI","waitlist",0.5,0.643086551259662,0.0705443452497268
+"stieger2021","Stieger et al., 2021",33,29,"MBSR","waitlist",0.5,0.436628975485737,0.067044287058709
