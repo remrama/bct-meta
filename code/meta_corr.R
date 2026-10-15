@@ -10,7 +10,7 @@
 #### Sensitivity: effects aggregated to one per sample x construct assuming
 #### a within-sample correlation of RHO_WITHIN, then a standard RE model.
 ####
-#### Reads data via load_data.R; writes CSVs and figures to results/.
+#### Reads data via load_data.R; writes CSVs and figures to derivatives/.
 
 suppressMessages({
   library(here)
@@ -91,9 +91,9 @@ models <- bind_rows(lapply(categories, function(cat) summarise_3level(fits[[cat]
                    z = egger$zval, pval = egger$pval))
 
 write.csv(dat %>% select(effect_id, sample_id, pub_id, label, study, category, correlate, n, r, reverse, r_signed, yi, vi, warnings),
-          file.path(RESULTS_DIR, "corr_effects.csv"), row.names = FALSE)
-write.csv(dat_agg %>% mutate(r = transf.ztor(yi)), file.path(RESULTS_DIR, "corr_effects_aggregated.csv"), row.names = FALSE)
-write.csv(models, file.path(RESULTS_DIR, "corr_models.csv"), row.names = FALSE)
+          file.path(DERIV_DIR, "corr_effects.csv"), row.names = FALSE)
+write.csv(dat_agg %>% mutate(r = transf.ztor(yi)), file.path(DERIV_DIR, "corr_effects_aggregated.csv"), row.names = FALSE)
+write.csv(models, file.path(DERIV_DIR, "corr_models.csv"), row.names = FALSE)
 
 ## =========================================================================
 ## 4. Forest plot (all effects, grouped by construct; polygons = 3-level models)
@@ -130,13 +130,17 @@ plot_corr_forest <- function() {
   text(xlim[1], -1.3, pos = 4, cex = cex * 0.9, "Polygons: three-level random-effects models (effects nested in samples); robust CI = cluster-robust by sample.")
 }
 
-agg_png(file.path(RESULTS_DIR, "fig_corr_forest.png"), width = 7.5, height = 10.5, units = "in", res = 600, background = "white")
+agg_png(file.path(DERIV_DIR, "fig_corr_forest.png"), width = 7.5, height = 10.5, units = "in", res = 600, background = "white")
 plot_corr_forest(); invisible(dev.off())
-pdf(file.path(RESULTS_DIR, "fig_corr_forest.pdf"), width = 7.5, height = 10.5)
+pdf(file.path(DERIV_DIR, "fig_corr_forest.pdf"), width = 7.5, height = 10.5)
 plot_corr_forest(); invisible(dev.off())
 
-agg_png(file.path(RESULTS_DIR, "figS_corr_funnel.png"), width = 5, height = 5, units = "in", res = 300, background = "white")
-funnel(rma.uni(yi, vi, data = dat_agg, method = "REML"), main = "Aggregated correlations (all constructs)", xlab = "Fisher z"); invisible(dev.off())
+res_agg <- rma.uni(yi, vi, data = dat_agg, method = "REML")
+plot_corr_funnel <- function() funnel(res_agg, main = "Aggregated correlations (all constructs)", xlab = "Fisher z")
+agg_png(file.path(DERIV_DIR, "figS_corr_funnel.png"), width = 5, height = 5, units = "in", res = 300, background = "white")
+plot_corr_funnel(); invisible(dev.off())
+pdf(file.path(DERIV_DIR, "figS_corr_funnel.pdf"), width = 5, height = 5)
+plot_corr_funnel(); invisible(dev.off())
 
 ## =========================================================================
 ## 5. Console summary

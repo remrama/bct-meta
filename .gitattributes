@@ -1,0 +1,9 @@
+# Store and check out every text file with LF line endings, on every OS
+* text=auto eol=lf
+
+# Binary files: never convert
+*.xlsx binary
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.pdf  binary

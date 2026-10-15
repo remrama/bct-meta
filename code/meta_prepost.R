@@ -12,7 +12,7 @@
 #### Pre/post correlation is not reported by any study, so r = R_PREPOST is
 #### assumed (Morris & DeShon 2002) with sensitivity analyses over R_PREPOST_SENS.
 ####
-#### Reads data via load_data.R; writes CSVs and figures to results/.
+#### Reads data via load_data.R; writes CSVs and figures to derivatives/.
 
 suppressMessages({
   library(here)
@@ -113,12 +113,12 @@ models <- bind_rows(
                    estimate = egger$est, zval = egger$zval, pval = egger$pval))
 
 write.csv(arms_es %>% select(pub_id, label, arm, arm_label, n, mean1, sd1, mean2, sd2, ri, yi, vi, extraction_source, n_arms_pooled),
-          file.path(RESULTS_DIR, "prepost_effects_arms.csv"), row.names = FALSE)
+          file.path(DERIV_DIR, "prepost_effects_arms.csv"), row.names = FALSE)
 write.csv(ctrl_es %>% select(pub_id, label, n_intervention, n_control, arm_label_intervention, arm_label_control, ri, yi, vi),
-          file.path(RESULTS_DIR, "prepost_effects_controlled.csv"), row.names = FALSE)
-write.csv(models, file.path(RESULTS_DIR, "prepost_models.csv"), row.names = FALSE)
-write.csv(sens,   file.path(RESULTS_DIR, "prepost_sensitivity_r.csv"), row.names = FALSE)
-write.csv(l1o,    file.path(RESULTS_DIR, "prepost_leave1out.csv"), row.names = FALSE)
+          file.path(DERIV_DIR, "prepost_effects_controlled.csv"), row.names = FALSE)
+write.csv(models, file.path(DERIV_DIR, "prepost_models.csv"), row.names = FALSE)
+write.csv(sens,   file.path(DERIV_DIR, "prepost_sensitivity_r.csv"), row.names = FALSE)
+write.csv(l1o,    file.path(DERIV_DIR, "prepost_leave1out.csv"), row.names = FALSE)
 
 ## =========================================================================
 ## 5. Forest plot
@@ -161,13 +161,16 @@ plot_prepost_forest <- function() {
                     ".  Assumed pre/post ", italic(r), " = ", .(R_PREPOST), ".")))
 }
 
-agg_png(file.path(RESULTS_DIR, "fig_prepost_forest.png"), width = 8.5, height = 7, units = "in", res = 600, background = "white")
+agg_png(file.path(DERIV_DIR, "fig_prepost_forest.png"), width = 8.5, height = 7, units = "in", res = 600, background = "white")
 plot_prepost_forest(); invisible(dev.off())
-pdf(file.path(RESULTS_DIR, "fig_prepost_forest.pdf"), width = 8.5, height = 7)
+pdf(file.path(DERIV_DIR, "fig_prepost_forest.pdf"), width = 8.5, height = 7)
 plot_prepost_forest(); invisible(dev.off())
 
-agg_png(file.path(RESULTS_DIR, "figS_prepost_funnel.png"), width = 5, height = 5, units = "in", res = 300, background = "white")
-funnel(res_ctrl, main = "Controlled pre/post effect", xlab = "Hedges' g"); invisible(dev.off())
+plot_prepost_funnel <- function() funnel(res_ctrl, main = "Controlled pre/post effect", xlab = "Hedges' g")
+agg_png(file.path(DERIV_DIR, "figS_prepost_funnel.png"), width = 5, height = 5, units = "in", res = 300, background = "white")
+plot_prepost_funnel(); invisible(dev.off())
+pdf(file.path(DERIV_DIR, "figS_prepost_funnel.pdf"), width = 5, height = 5)
+plot_prepost_funnel(); invisible(dev.off())
 
 ## =========================================================================
 ## 6. Console summary

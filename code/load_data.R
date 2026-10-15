@@ -6,7 +6,7 @@
 #### and derives the quantities the analysis scripts need.
 ####
 #### Sourced by meta_prepost.R and meta_corr.R; also runnable on its own
-#### (writes results/exclusions.csv and results/included_*.csv).
+#### (writes derivatives/exclusions.csv).
 
 suppressMessages({
   library(here)
@@ -14,9 +14,9 @@ suppressMessages({
   library(readxl)
 })
 
-DATA_DIR    <- here("data")
-RESULTS_DIR <- here("results")
-dir.create(RESULTS_DIR, showWarnings = FALSE)
+SOURCE_DIR <- here("sourcedata")
+DERIV_DIR  <- here("derivatives")
+dir.create(DERIV_DIR, showWarnings = FALSE)
 
 ## ---- analysis constants -------------------------------------------------
 PRIMARY_TASK <- "BCT"   # MVP scope: Levinson-style breath counting task only
@@ -32,7 +32,7 @@ make_pub_id <- function(author, year) {
 ## =========================================================================
 ## 1. Pre/post data
 ## =========================================================================
-prepost_raw <- read_excel(file.path(DATA_DIR, "breathpubs_prepost.xlsx"))
+prepost_raw <- read_excel(file.path(SOURCE_DIR, "breathpubs_prepost.xlsx"))
 
 prepost <- prepost_raw %>%
   mutate(
@@ -80,7 +80,7 @@ prepost_included <- prepost %>%
 ## =========================================================================
 # 'study' is read as text so sub-samples can be labelled e.g. 1a / 1b
 # (Levinson 2014 study 1 ran in two participant blocks); other columns keep readxl's guessed types
-corr_path  <- file.path(DATA_DIR, "breathpubs_corr.xlsx")
+corr_path  <- file.path(SOURCE_DIR, "breathpubs_corr.xlsx")
 corr_types <- ifelse(names(read_excel(corr_path, n_max = 0)) == "study", "text", "guess")
 corr_raw   <- read_excel(corr_path, col_types = corr_types)
 
@@ -121,7 +121,7 @@ exclusions <- bind_rows(
   corr %>% filter(!is.na(exclude_reason)) %>%
     transmute(dataset = "correlations", row_in_sheet, author, year, breathtask, exclude_reason)
 )
-write.csv(exclusions, file.path(RESULTS_DIR, "exclusions.csv"), row.names = FALSE)
+write.csv(exclusions, file.path(DERIV_DIR, "exclusions.csv"), row.names = FALSE)
 
 if (sys.nframe() == 0) {  # only when run directly, not when sourced
   cat(sprintf("pre/post: %d rows read, %d included (%d publications)\n",

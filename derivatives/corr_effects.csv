@@ -13,19 +13,19 @@
 16,"levinson2014_s2","levinson2014","Levinson, 2014, 2","2","Mindfulness","IPI",85,-0.27,TRUE,0.27,0.2768638226551,0.0121951219512195,NA
 25,"wong2018_s1","wong2018","Wong, 2018, 1","1","Mindfulness","MAAS",127,0.164,FALSE,0.164,0.165494507603341,0.00806451612903226,NA
 26,"wong2018_s1","wong2018","Wong, 2018, 1","1","Mindfulness","MWQ",127,-0.093,FALSE,-0.093,-0.093269519030701,0.00806451612903226,NA
-27,"isbel2020_s1","isbel2020","Isbel, 2020, 1","1","Mindfulness","FFMQ",86,-0.005,FALSE,-0.005,-0.00500004166729166,0.0120481927710843,NA
-28,"isbel2020_s1","isbel2020","Isbel, 2020, 1","1","Mindfulness","FFMQ",86,0.222,FALSE,0.222,0.225758807776574,0.0120481927710843,"* just different timepoints, same subjects!"
+27,"isbel2020_s1","isbel2020","Isbel, 2020, 1","1","Mindfulness","FFMQ",86,-0.005,FALSE,-0.005,-0.00500004166729168,0.0120481927710843,NA
+28,"isbel2020_s1","isbel2020","Isbel, 2020, 1","1","Mindfulness","FFMQ",86,0.222,FALSE,0.222,0.225758807776575,0.0120481927710843,"* just different timepoints, same subjects!"
 29,"isbel2020_s1","isbel2020","Isbel, 2020, 1","1","Mindfulness","MAAS",86,-0.054,FALSE,-0.054,-0.0540525800247147,0.0120481927710843,"* I am assuming they used all 86 participants for each correlation, collapsing across treatment/control"
 30,"isbel2020_s1","isbel2020","Isbel, 2020, 1","1","Mindfulness","MAAS",86,-0.016,FALSE,-0.016,-0.0160013655430869,0.0120481927710843,"* just different timepoints, same subjects!"
 31,"tortellafeliu2020_s1","tortellafeliu2020","Tortella-Feliu, 2020, 1","1","Mindfulness","MINDSENS",50,0.199,FALSE,0.199,0.201691103979578,0.0212765957446809,"* important that there are 2 diff versions of BCT, I'm using the ""simple"" one here"
 18,"levinson2014_s2","levinson2014","Levinson, 2014, 2","2","Psychological wellbeing","ARS",137,-0.13,TRUE,0.13,0.130739850028878,0.00746268656716418,NA
 19,"levinson2014_s2","levinson2014","Levinson, 2014, 2","2","Psychological wellbeing","PANAS",137,-0.22,TRUE,0.22,0.223656109021832,0.00746268656716418,"* unclear about all these sample sizes!!"
-21,"levinson2014_s3","levinson2014","Levinson, 2014, 3","3","Psychological wellbeing","BIS",39,-0.07,TRUE,0.07,0.0701146706543252,0.0277777777777778,NA
-32,"tortellafeliu2020_s1","tortellafeliu2020","Tortella-Feliu, 2020, 1","1","Psychological wellbeing","DASS-21",50,-0.079,TRUE,0.079,0.0791649645014138,0.0212765957446809,NA
+21,"levinson2014_s3","levinson2014","Levinson, 2014, 3","3","Psychological wellbeing","BIS",39,-0.07,TRUE,0.07,0.0701146706543251,0.0277777777777778,NA
+32,"tortellafeliu2020_s1","tortellafeliu2020","Tortella-Feliu, 2020, 1","1","Psychological wellbeing","DASS-21",50,-0.079,TRUE,0.079,0.0791649645014139,0.0212765957446809,NA
 33,"tortellafeliu2020_s1","tortellafeliu2020","Tortella-Feliu, 2020, 1","1","Psychological wellbeing","PHI",50,0.398,FALSE,0.398,0.421270238742467,0.0212765957446809,NA
 34,"tortellafeliu2020_s1","tortellafeliu2020","Tortella-Feliu, 2020, 1","1","Psychological wellbeing","PTQ",50,-0.308,TRUE,0.308,0.318334288199737,0.0212765957446809,NA
 1,"levinson2014_s1b","levinson2014","Levinson, 2014, 1b","1b","Executive function","CFQ",93,-0.22,TRUE,0.22,0.223656109021832,0.0111111111111111,NA
-2,"levinson2014_s1b","levinson2014","Levinson, 2014, 1b","1b","Executive function","OSPAN",93,0.04,FALSE,0.04,0.0400213538367683,0.0111111111111111,NA
+2,"levinson2014_s1b","levinson2014","Levinson, 2014, 1b","1b","Executive function","OSPAN",93,0.04,FALSE,0.04,0.0400213538367682,0.0111111111111111,NA
 14,"levinson2014_s2","levinson2014","Levinson, 2014, 2","2","Executive function","ASRS",137,-0.17,TRUE,0.17,0.171666663500579,0.00746268656716418,NA
 15,"levinson2014_s2","levinson2014","Levinson, 2014, 2","2","Executive function","SART-Err",137,-0.19,TRUE,0.19,0.192337169219545,0.00746268656716418,NA
 17,"levinson2014_s2","levinson2014","Levinson, 2014, 2","2","Executive function","SART-RT",137,-0.32,TRUE,0.32,0.331647108705132,0.00746268656716418,NA

@@ -1,0 +1,20 @@
+[project]
+name = "bct-meta-analysis"
+version = "0.1.0"
+description = "Python helpers (plot digitizing, literature search) for the BCT meta-analysis; the analysis itself is in R"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.5.4",
+    "pandas>=3.0.6",
+    "requests>=2.34.2",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.0",
+]
+
+[tool.ruff.format]
+indent-style = "space"
+line-ending = "lf"
+quote-style = "double"
